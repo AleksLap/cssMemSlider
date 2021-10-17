@@ -3,6 +3,8 @@ const sliderInner = document.querySelector('.slider-inner');
 const images = document.querySelectorAll('.img');
 const controlItems = document.querySelectorAll('.control-item');
 const spans = document.querySelectorAll('.span');
+const text = document.querySelector('.text');
+const words = ['I`m watching you', 'Yeh dude, really', 'True story :)', 'Сдесь могла быть ваша реклама'];
 let index = 0;
 let width;
 
@@ -19,12 +21,20 @@ function removeActiveClass() {
   spans.forEach(item => {
     item.classList.remove('span-active');
   })
-}
+};
 
 function rollSlider() {
   sliderInner.style.transform = `translate(-${index * width}px)`;
   console.log('toleft: ' + `translate(-${index * width}px)`)
-}
+};
+
+function hideShowText() {
+  text.classList.add('hide-text');
+  setTimeout(() => {
+    text.innerHTML = words[index];
+    text.classList.remove('hide-text');
+  }, 300);
+} 
 
 controlItems.forEach(item => {
   item.addEventListener('click', function() {
@@ -36,7 +46,7 @@ controlItems.forEach(item => {
       index = controlInd;
       removeActiveClass();
       this.querySelector('.span').classList.add('span-active');
-      console.log(index)
+      hideShowText();
       rollSlider();
     }
   })
