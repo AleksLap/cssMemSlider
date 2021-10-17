@@ -1,0 +1,108 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.mem-slider {
+  background-color: black;
+  height: 100vh;
+  padding-top: 10vh;
+}
+
+.container {
+  max-width: 50vw;
+  margin: 0 auto;
+  padding: 1.2%;
+  padding-bottom: 3%;
+  background-color: #282828;
+  border-radius: 15px;
+  box-shadow: 0 0 3px 1px #00a1ff inset;
+}
+
+.slider {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 5px 0px rgb(0 0 0 / 50%);
+}
+
+.slider-inner {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.img {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.slider-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider-text,
+.slider-control {
+  margin-top: 30px;
+}
+
+.text {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  line-height: 40px;
+  font-size: 28px;
+  color: white;
+}
+
+.control-list {
+  display: flex;
+  list-style: none;
+  cursor: pointer;
+}
+
+.control-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 40px;
+  height: 40px;
+}
+
+.span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #00a1ff;
+  background-color: #00a1ff;
+  transition: all 0.3s linear;
+}
+
+.control-item:hover .span {
+  border: 2px solid white;
+  background-color: white;
+}
+
+.control-item:active .span {
+  border: 2px solid rgb(121, 121, 121);
+  background-color: rgb(121, 121, 121);
+}
+
+.span-active {
+  background-color: transparent;
+}
+
+.control-item:hover .span-active {
+  background-color: transparent;
+}
+
+.control-item:active .span-active {
+  background-color: transparent;
+}
