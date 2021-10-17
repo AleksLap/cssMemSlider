@@ -30,6 +30,9 @@
 .slider-inner {
   display: flex;
   flex-direction: row;
+}
+
+.transition {
   transition: all ease 0.5s;
 }
 
@@ -45,6 +48,10 @@
 .slider-text,
 .slider-control {
   margin-top: 30px;
+}
+
+.slider-control {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .text {
@@ -104,4 +111,32 @@
 
 .control-item:active .span-active {
   background-color: transparent;
+}
+
+@media screen and (max-width: 1440px) {
+  .container {
+    max-width: 70vw;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .container {
+    max-width: 98vw;
+    padding-bottom: 15%;
+  }
+
+  .slider-group {
+    flex-direction: column;
+  }
+
+  .slider-control {
+    order: 1;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .slider-text {
+    order: 2;
+    font-size: 18px;
+  }
 }

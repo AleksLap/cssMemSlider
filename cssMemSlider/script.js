@@ -14,7 +14,8 @@ function init() {
   images.forEach(item => {
     item.style.width = width + 'px';
     item.style.height = 'auto';
-  })
+  });
+  rollSlider();
 };
 
 function removeActiveClass() {
@@ -25,7 +26,6 @@ function removeActiveClass() {
 
 function rollSlider() {
   sliderInner.style.transform = `translate(-${index * width}px)`;
-  console.log('toleft: ' + `translate(-${index * width}px)`)
 };
 
 function hideShowText() {
@@ -39,7 +39,7 @@ function hideShowText() {
 controlItems.forEach(item => {
   item.addEventListener('click', function() {
     let controlInd = +this.dataset.index;
-    console.log(controlInd)
+
     if(index === controlInd) {
       return;
     } else {
@@ -47,6 +47,8 @@ controlItems.forEach(item => {
       removeActiveClass();
       this.querySelector('.span').classList.add('span-active');
       hideShowText();
+      sliderInner.classList.add('transition');
+      setTimeout(() => sliderInner.classList.remove('transition'), 500);
       rollSlider();
     }
   })
