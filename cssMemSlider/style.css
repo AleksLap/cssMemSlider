@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .mem-slider {
   background-color: black;
   height: 100vh;
@@ -11,47 +15,130 @@
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   max-width: 50vw;
   margin: 0 auto;
   padding: 1.2%;
   padding-bottom: 3%;
   background-color: #282828;
-  border-radius: 15px;
+  border-radius: 1rem;
   box-shadow: 0 0 3px 1px #00a1ff inset;
 }
 
-.slider {
-  position: relative;
-  border-radius: 10px;
+input {
+  display: none;
+}
+
+.overflow {
+  width: 100%;
   overflow: hidden;
-  box-shadow: 0 5px 5px 0px rgb(0 0 0 / 50%);
+  border-radius: 10px;
 }
 
-.slider-inner {
+.slides {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
   display: flex;
-  flex-direction: row;
 }
 
-.transition {
-  transition: all ease 0.5s;
+.slide {
+  flex-shrink: 0;
+  transition: 0.3s;
+  width: 100%;
 }
 
 .img {
- transition: none;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.slide1 {
+  transform: translateX(-100%);
+}
+
+#slide1:checked ~ #slides .slide1 {
+  transform: translateX(0);
+}
+
+#slide2:checked ~ #slides .slide2 {
+  transform: translateX(-100%);
+}
+
+#slide3:checked ~ #slides .slide3 {
+  transform: translateX(-200%);
+}
+
+#slide4:checked ~ #slides .slide4 {
+  transform: translateX(-300%);
+}
+
+#slide3:checked ~ #slides .slide1,
+#slide3:checked ~ #slides .slide2 {
+  transform: translateX(-200%);
+}
+
+#slide4:checked ~ #slides .slide1,
+#slide4:checked ~ #slides .slide2,
+#slide4:checked ~ #slides .slide3 {
+  transform: translateX(-300%);
+}
+
+.text-1 {
+  transform: translateX(-100%);
+}
+
+#slide1:checked ~ #group #text .text-1 {
+  transform: translateX(0);
+}
+
+#slide2:checked ~ #group #text .text-2 {
+  transform: translateX(-100%);
+}
+
+#slide3:checked ~ #group #text .text-3 {
+  transform: translateX(-200%);
+}
+
+#slide4:checked ~ #group #text .text-4 {
+  transform: translateX(-300%);
+}
+
+#slide3:checked ~ #group #text .text-1,
+#slide3:checked ~ #group #text .text-2 {
+  transform: translateX(-200%);
+}
+
+#slide4:checked ~ #group #text .text-1,
+#slide4:checked ~ #group #text .text-2,
+#slide4:checked ~ #group #text .text-3 {
+  transform: translateX(-300%);
 }
 
 .slider-group {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.slider-text,
-.slider-control {
-  margin-top: 30px;
+.slider-controls {
+  display: flex;
+  justify-content: end;
 }
 
-.slider-control {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+.slider-text {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 80%;
+}
+
+.slider-controls,
+.slider-text {
+  margin-top: 1rem;
 }
 
 .text {
@@ -60,29 +147,22 @@
   line-height: 40px;
   font-size: 22px;
   color: white;
-  transition: all 0.15s linear;
+  flex-shrink: 0;
+  width: 100%;
+  transition: 0.3s;
 }
 
-.hide-text {
-  opacity: 0;
-}
-
-.control-list {
+.label {
   display: flex;
-  list-style: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 
-.control-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 40px;
-  height: 40px;
-}
-
 .span {
-  display: inline-block;
+  display: block;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -91,31 +171,36 @@
   transition: all 0.3s linear;
 }
 
-.control-item:hover .span {
+.label:hover .span {
   border: 2px solid white;
   background-color: white;
 }
 
-.control-item:active .span {
+.label:active .span {
   border: 2px solid rgb(121, 121, 121);
   background-color: rgb(121, 121, 121);
 }
 
-.span-active {
+#slide1:checked ~ #group > #control label[for="slide1"] .span {
   background-color: transparent;
 }
 
-.control-item:hover .span-active {
+#slide2:checked ~ #group > #control label[for="slide2"] .span {
   background-color: transparent;
 }
 
-.control-item:active .span-active {
+#slide3:checked ~ #group > #control label[for="slide3"] .span {
   background-color: transparent;
 }
+
+#slide4:checked ~ #group > #control label[for="slide4"] .span {
+  background-color: transparent;
+}
+
 
 @media screen and (max-width: 1440px) {
   .container {
-    max-width: 70vw;
+    max-width: 60vw;
   }
 }
 
@@ -129,14 +214,12 @@
     flex-direction: column;
   }
 
-  .slider-control {
-    order: 1;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .slider-text {
     order: 2;
-    font-size: 18px;
+    width: 100%;
+  }
+
+  .slider-controls {
+    order: 1;
   }
 }
