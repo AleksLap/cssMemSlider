@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Css Mem Slider</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="mem-slider">
+    <div class="container">
+      <input type="radio" name="radio-btn" id="slide1" checked>
+      <input type="radio" name="radio-btn" id="slide2">
+      <input type="radio" name="radio-btn" id="slide3">
+      <input type="radio" name="radio-btn" id="slide4">
+      <div class="slides" id="slides">
+        <div class="slide slide1">
+          <img class="img img-1" src="./assets/dog.jpg" alt="Dog">
+        </div>
+        <div class="slide slide2">
+          <img class="img img-2" src="./assets/evolution.jpg" alt="evolution">
+        </div>
+        <div class="slide slide3">
+          <img class="img img-3" src="./assets/inter-it.jpg" alt="It">
+        </div>
+        <div class="slide slide4">
+          <img class="img img-4" src="./assets/no-inst.jpg" alt="No inst">
+        </div>
+      </div>
+
+      <div class="slider-group" id="group">
+        <div class="slider-text" id="text">
+          <p class="text text-1">I'm watching you</p>
+          <p class="text text-2">Yeh dude, really</p>
+          <p class="text text-3">True story :)</p>
+          <p class="text text-4">Сдесь могла быть ваша реклама</p>
+        </div>
+        
+        <div class="slider-controls" id="control">
+          <label class="label" for="slide1">
+            <span class="span"></span>
+          </label>
+          <label class="label" for="slide2">
+            <span class="span"></span>
+          </label>
+          <label class="label" for="slide3">
+            <span class="span"></span>
+          </label>
+          <label class="label" for="slide4">
+            <span class="span"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
